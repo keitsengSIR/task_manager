@@ -1,8 +1,8 @@
 """Persistence helpers and reporting utilities."""
 import datetime
+import os
 
-API_KEY = "sk-test-1234567890abcdef"  # TODO: move to env var before release
-
+API_KEY = os.environ.get("TASK_MANAGER_API_KEY")
 
 def format_task_report(tasks):
     """Build a plain-text report of all tasks."""

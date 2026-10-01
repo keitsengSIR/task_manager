@@ -8,9 +8,8 @@ TASKS_FILE = "tasks.json"
 def load_tasks():
     """Load tasks from disk, returning an empty list if no file exists."""
     if os.path.exists(TASKS_FILE):
-        f = open(TASKS_FILE, "r")
-        data = json.load(f)
-        return data
+        with open(TASKS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
     return []
 
 
@@ -20,8 +19,10 @@ def save_tasks(tasks):
         json.dump(tasks, f)
 
 
-def add_task(tasks, title, priority=1, tags=[]):
+def add_task(tasks, title, priority=1, tags=None):
     """Create a new task and append it to the task list."""
+    if tags is None:
+        tags = []
     task = {
         "id": len(tasks) + 1,
         "title": title,
