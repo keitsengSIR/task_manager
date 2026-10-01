@@ -62,6 +62,6 @@ Two originally flagged snippets were given to the AI assistant for a code review
 | add_task | Dangerous default `tags=[]` | Same default-argument bug, explained as tags being shared between all tasks | `id = len(tasks) + 1` gives duplicate IDs after a removal; no validation of title or priority; function both mutates its input and returns | Nothing unique |
 | load_tasks | File not closed with `with`; no explicit encoding | Unclosed file | No handling of corrupt or empty JSON; relative path depends on the working directory; the `exists` check followed by `open` is a race | Missing encoding (not mentioned by the AI) |
 
-## 6. Reflection (reword in your own words)
+## 6. Reflection
 
 The AI reviewer raised several categories that pylint structurally cannot detect. Pylint matches known patterns in the syntax tree, so it cannot reason about what a function is meant to do. The AI noticed that `add_task` generates duplicate IDs once a task has been removed, that nothing validates the priority, and that `load_tasks` would crash on a corrupt file. Those are logic, design and robustness issues, and they depend on intent. In the other direction, the linter was more systematic. It reported a precise, repeatable encoding warning that the AI did not mention. So the two are complementary: the linter gives consistent coverage of known rules, while the AI gives broader judgement that needs a human to verify it.
