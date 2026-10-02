@@ -1,0 +1,6 @@
+test_id,title,priority,expected_result,expected_text
+UI01,Write report,1,added,Write report
+UI02,Buy groceries,3,added,Buy groceries
+UI03,Prepare COMP 441 presentation slides,5,added,Prepare COMP 441 presentation slides
+UI04,Review pull request,4,added,Review pull request
+UI05,,2,error,Title is required
