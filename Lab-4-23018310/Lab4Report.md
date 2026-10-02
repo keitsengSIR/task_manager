@@ -129,4 +129,3 @@ Things to check:
 
 Question: *Where did the AI-generated traceability matrix diverge from yours, and which version would you trust for an audit?*
 
-Base your answer on the table in section 6.
